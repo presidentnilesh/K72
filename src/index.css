@@ -1,6 +1,21 @@
 @import "tailwindcss";
 
-*{
-  color: aquamarine;
-  background: #111;
+:root {
+  color: #111;
+  background: #fff;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+@font-face {
+  font-family: font1;
+  src: url(../public/fonts/Lausanne-300.woff2);
+}
+@font-face {
+  font-family: font2;
+  src: url(../public/fonts/Lausanne-500.woff2);
 }
