@@ -6,16 +6,14 @@ import Project from './assets/Pages/Project'
 
 const App = () => {
   return (
-    <div className='text-white'>
-      
-      <Routes>
+    <div className=''>
 
+      <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Agence' element={<Agence />} />
-        <Route path='/Project' element={<Project />} />
+        <Route path='/agence' element={<Agence />} />
+        <Route path='/project' element={<Project />} />
       </Routes>
     </div>
   )
 }
-
 export default App
