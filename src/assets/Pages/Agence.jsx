@@ -21,7 +21,6 @@ const Agence = () => {
     "https://k72.ca/images/teamMembers/joel_480X640_3.jpg?w=480&h=640&fit=crop&s=1cadbf143b3aa916b1b414464acbb4d6",
     "https://k72.ca/images/teamMembers/PLP2_640x960.jpg?w=640&h=960&s=277b83adbf80a1c60a1c7ee72dfdf5cf",
     "https://k72.ca/images/teamMembers/joel_640X960_3.jpg?w=640&h=960&s=7fcd2cb26f9ffb7cb96fda9c5e707496",
-    
   ]
 
 
@@ -33,8 +32,17 @@ const Agence = () => {
       start:'top 28.8%',
       end:'top -70%',
       pin: true  ,
+
       onUpdate:(elem)=>{
-        console.log(elem.progress * imageArray.length )
+        let imageIndex ;
+        if(elem.progess<1){
+           imageIndex = Math.floor(elem.progress * imageArray.length )
+        }
+        else{
+          imageIndex = imageArray.length - 1 ;
+        }
+        
+        imageRef.current.src = imageArray[imageIndex]
       }
     }
   }) 
