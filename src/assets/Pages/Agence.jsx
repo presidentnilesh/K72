@@ -24,7 +24,6 @@ const Agence = () => {
     
   ]
 
-  console.log(imageArray)
 
   useGSAP(function(){
   gsap.to(imageDivRef.current,{
@@ -35,7 +34,7 @@ const Agence = () => {
       end:'top -70%',
       pin: true  ,
       onUpdate:(elem)=>{
-        // console.log(elem )
+        console.log(elem.progress * imageArray.length )
       }
     }
   }) 
