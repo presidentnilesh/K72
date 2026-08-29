@@ -35,13 +35,12 @@ const Agence = () => {
 
       onUpdate:(elem)=>{
         let imageIndex ;
-        if(elem.progess<1){
-           imageIndex = Math.floor(elem.progress * imageArray.length )
+        if((elem.progess * imageArray.length )<10){
+          imageIndex = Math.floor(elem.progress * imageArray.length )
         }
         else{
-          imageIndex = imageArray.length - 1 ;
+          imageIndex = imageArray.length - 10 ;
         }
-        
         imageRef.current.src = imageArray[imageIndex]
       }
     }
