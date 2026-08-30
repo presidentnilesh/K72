@@ -9,7 +9,7 @@ const HomeButtomText = () => {
       <Link className='text-[6vw] mt-6' to='/project'>Projects</Link>
       </div>
 
-      <div className='  leading-[6vw]  uppercase border-white px-7 border-3 mb-3 pt-2  hover:border-[#cde38c] hover:text-[#D3FD50] rounded-full '>
+      <div className=' leading-[6vw]  uppercase border-white px-7 border-3 mb-3 pt-2  hover:border-[#cde38c] hover:text-[#D3FD50] rounded-full '>
       <Link className='text-[6vw] mt-6' to='/agence'>Agence</Link>
       </div>
     </div>
