@@ -30,10 +30,13 @@ const Agence = () => {
       pin: true,
 
       onUpdate: (elem) => {
-        const progress = elem.progress
-        const imageIndex = Math.min(Math.floor(progress * imageArray.length),
-          imageArray.length - 1
-        )
+        let imageIndex;
+        if(elem.progress <1){
+          imageIndex = Math.floor(elem.progress* imageArray.length )
+        }
+        else {
+          imageIndex = imageArray.length -1 
+        }
         imageRef.current.src = imageArray[imageIndex]
       }
     }
