@@ -31,8 +31,7 @@ const Agence = () => {
 
       onUpdate: (elem) => {
         const progress = elem.progress
-        const imageIndex = Math.min(
-          Math.floor(progress * imageArray.length),
+        const imageIndex = Math.min(Math.floor(progress * imageArray.length),
           imageArray.length - 1
         )
         imageRef.current.src = imageArray[imageIndex]
