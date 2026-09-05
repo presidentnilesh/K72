@@ -16,13 +16,11 @@ const Stairs = (props) => {
         const tl = gsap.timeline()
         tl.from(stairParentRef.current, {
             display: 'block',
-            delay :-0.1
-
         })
         tl.from('.stair', {
             height: '100%',
             stagger: {
-                amount: -0.15
+                amount: -0.15   
             }
         }
         )
@@ -32,7 +30,7 @@ const Stairs = (props) => {
                 amount: -0.15
             }
         })
-        tl.to(stairParentRef.current, {
+        tl.set(stairParentRef.current, {
             display: 'none'
         })
         tl.to('.stair', {
@@ -42,9 +40,12 @@ const Stairs = (props) => {
         gsap.from(pageRef.current, {
             opacity: 0,
             delay: 1.2,
-            scale :1 
+            scale: 1
         })
-    }, [currentPath])
+    }, {
+        dependencies: [currentPath],
+        revertOnUpdate: true
+    })
 
     return (
         <div>
