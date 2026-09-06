@@ -20,3 +20,27 @@ body {
   font-family: font2;
   src: url(../public/fonts/Lausanne-500.woff2);
 }
+
+.moveX{
+  animation-name: moveAnimation;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: all ease 0.3s;
+}
+
+.moveLink{
+  opacity: 0;
+}
+.link:hover .moveLink{
+  opacity: 1;
+}
+
+@keyframes moveAnimation {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
