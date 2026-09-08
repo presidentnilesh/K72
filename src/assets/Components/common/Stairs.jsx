@@ -19,13 +19,15 @@ const Stairs = (props) => {
         })
         tl.from('.stair', {
             height: '100%',
+             duration: 0.4,
             stagger: {
-                amount: -0.15   
+                amount: -0.25 
             }
         }
         )
         tl.to('.stair', {
             y: '100%',
+             duration: 0.4,
             stagger: {
                 amount: -0.15
             }

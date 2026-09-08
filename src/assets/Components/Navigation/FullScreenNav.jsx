@@ -26,7 +26,7 @@ const FullScreenNav = () => {
     })
   })
   return (
-    <div id='fullscreennav' className='h-screen text-white overflow-hidden w-full absolute'>
+    <div id='fullscreennav' className=' h-screen hidden text-white overflow-hidden w-full absolute'>
       <div className='h-screen w-full fixed '>
         <div className='h-full w-full flex '>
           <div className='stair bg-red-500 h-full w-1/5 '></div>
