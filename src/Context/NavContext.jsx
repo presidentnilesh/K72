@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react'
 
+export const navBarContext =  createContext()
+
 const NavContext = ({children}) => {
 
-  const navBarContext =  createContext()
 
   const [navOpen, setNavOpen] = useState(false)
 

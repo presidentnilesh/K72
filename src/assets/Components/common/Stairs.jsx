@@ -21,7 +21,8 @@ const Stairs = (props) => {
             height: '100%',
              duration: 0.4,
             stagger: {
-                amount: -0.25 
+                amount: -0.25 ,
+                from : 'start'
             }
         }
         )

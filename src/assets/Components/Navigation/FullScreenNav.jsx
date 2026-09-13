@@ -1,15 +1,25 @@
 import { useGSAP } from '@gsap/react'
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import gsap from 'gsap'
+import { navBarContext } from '../../../Context/NavContext'
+import NavBar from './NavBar'
 
 const FullScreenNav = () => {
   const fullNavLinksRef = useRef(null)
+  const fullScreenRef = useRef(null)
+
+  const [navOpen, setNavOpen] = useContext(navBarContext)
+  console.log(navOpen)
+
 
   useGSAP(function () {
     const tl = gsap.timeline()
 
+    tl.to('#fullscreennav',{
+      display :'block'
+    })
+
     tl.from('.stair', {
-      delay: 1,
       height: 0,
       stagger: {
         amount: -0.2
@@ -24,9 +34,20 @@ const FullScreenNav = () => {
         amount: 0.2
       }
     })
-  })
+
+    tl.pause()
+
+    if(navOpen){
+      fullScreenRef.current.style.display = 'block'
+      tl.play()
+    }
+    else{
+      fullScreenRef.current.style.display = 'null'
+      tl.reverse()
+    }
+  }, [navOpen])
   return (
-    <div id='fullscreennav' className=' h-screen hidden text-white overflow-hidden w-full absolute'>
+    <div ref={fullScreenRef} id='fullscreennav' className=' h-screen hidden text-white overflow-hidden w-full z-50 absolute'>
       <div className='h-screen w-full fixed '>
         <div className='h-full w-full flex '>
           <div className='stair bg-red-500 h-full w-1/5 '></div>
