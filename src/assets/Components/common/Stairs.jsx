@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
@@ -11,54 +10,49 @@ const Stairs = (props) => {
     const stairParentRef = useRef(null)
     const pageRef = useRef(null)
 
-    // stair effect 
     useGSAP(function () {
         const tl = gsap.timeline()
-        tl.from(stairParentRef.current, {
-            display: 'block',
-        })
-        tl.from('.stair', {
+        tl.fromTo('.page-stair', {
+            height: 0,
+        }, {
             height: '100%',
-             duration: 0.4,
+            duration: 0.4,
             stagger: {
-                amount: -0.25 ,
-                from : 'start'
-            }
-        }
-        )
-        tl.to('.stair', {
-            y: '100%',
-             duration: 0.4,
+                amount: 0.2,
+                from: 'start',
+            },
+        })
+        tl.to('.page-stair', {
+            yPercent: 100,
+            duration: 0.4,
             stagger: {
-                amount: -0.15
-            }
+                amount: 0.25,
+                from: 'start',
+            },
         })
-        tl.set(stairParentRef.current, {
-            display: 'none'
-        })
-        tl.to('.stair', {
-            y: '0%'
-        })
+        tl.set(stairParentRef.current, { display: 'none' })
 
-        gsap.from(pageRef.current, {
+        gsap.from(pageRef.current,{
             opacity: 0,
-            delay: 1.2,
-            scale: 1
+            delay: 1.3,
+            scale: 1.2,
         })
     }, {
+        scope: stairParentRef,
         dependencies: [currentPath],
-        revertOnUpdate: true
+        revertOnUpdate: true,
     })
+    
 
     return (
         <div>
-            <div ref={stairParentRef} className='h-screen w-full  fixed z-20 top-0'>
-                <div className='h-screen w-screen flex '>
-                    <div className='stair bg-black h-full w-1/5 '></div>
-                    <div className='stair bg-black h-full w-1/5 '></div>
-                    <div className='stair bg-black h-full w-1/5 '></div>
-                    <div className='stair bg-black h-full w-1/5 '></div>
-                    <div className='stair bg-black h-full w-1/5 '></div>
+            <div ref={stairParentRef} className='h-screen w-full fixed z-20 top-0'>
+                <div className='h-full w-full flex'>
+                    <div className='page-stair h-full w-1/5 bg-black'></div>
+                    <div className='page-stair h-full w-1/5 bg-black'></div>
+                    <div className='page-stair h-full w-1/5 bg-black'></div>
+                    <div className='page-stair h-full w-1/5 bg-black'></div>
+                    <div className='page-stair h-full w-1/5 bg-black'></div>
                 </div>
             </div>
             <div ref={pageRef}>
